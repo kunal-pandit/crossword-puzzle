@@ -5,4 +5,5 @@ export interface Tile {
   editable: boolean;
   value?: string;
   response?: string;
+  placeholder?: string;
 }

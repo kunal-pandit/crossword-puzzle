@@ -27,18 +27,66 @@ export class TileService {
         let value = row[j];
         let isEditable = value?true:false;
         let color = value?'white':'black';
+        let placeholder = this.getPlaceholder(i, j);
         tiles.push({
           color: color,
           editable: isEditable,
           rows: i,
           cols: j,
-          value: row[j]
+          value: row[j],
+          placeholder: placeholder
         });
       }
     }
     // this.responses = tiles;
     this.responses = tiles.map(x => Object.assign({}, x));
     return tiles;
+  }
+
+  getPlaceholder(i, j): string {
+    let placeholder: string = '';
+    if (i === 0 && j === 16) {
+      placeholder = '1';
+    } else if (i === 5 && j === 21) {
+      placeholder = '4';
+    } else if (i === 6 && j === 24) {
+      placeholder = '5';
+    } else if (i === 6 && j === 1) {
+      placeholder = '7';
+    } else if (i === 3 && j === 6) {
+      placeholder = '9';
+    } else if (i === 9 && j === 10) {
+      placeholder = '10';
+    } else if (i === 8 && j === 18) {
+      placeholder = '12';
+    } else if (i === 16 && j === 12) {
+      placeholder = '15';
+    } else if (i === 19 && j === 15) {
+      placeholder = '18';
+    } else if (i === 15 && j === 22) {
+      placeholder = '19';
+    } else if (i === 2 && j === 14) {
+      placeholder = '2';
+    } else if (i === 6 && j === 14) {
+      placeholder = '3';
+    } else if (i === 7 && j === 0) {
+      placeholder = '6';
+    } else if (i === 10 && j === 3) {
+      placeholder = '8';
+    } else if (i === 8 && j === 11) {
+      placeholder = '11';
+    } else if (i === 12 && j === 15) {
+      placeholder = '13';
+    } else if (i === 15 && j === 13) {
+      placeholder = '14';
+    } else if (i === 20 && j === 8) {
+      placeholder = '16';
+    } else if (i === 25 && j === 9) {
+      placeholder = '17';
+    } else if (i === 16 && j === 22) {
+      placeholder = '20';
+    }
+    return placeholder;
   }
 
   updateResponses(responseTile) {
@@ -53,7 +101,7 @@ export class TileService {
     return this.responses;
   }
 
-  calculateScore():number {
+  calculateScore(): number {
     console.log(this.responses);
     let correctResponses = _.filter(this.responses, function (res) {
       return res.value === res.response;

@@ -35,8 +35,7 @@ export class CrosswordGridComponent implements OnInit {
 "A type of concentrating solar thermal power systems",
 "The first full scale locomotive engine was setup in this country"];
 
-  private tiles : Tile[];
-  private grid: any;
+  tiles : Tile[];
 
   constructor(private tileService: TileService) { }
 
@@ -46,10 +45,6 @@ export class CrosswordGridComponent implements OnInit {
 
   getTiles() {
     this.tiles = this.tileService.getTiles();
-  }
-
-  getGrid() {
-    this.grid = this.tileService.getGrid();
   }
 
   updateBox(response, tile) {

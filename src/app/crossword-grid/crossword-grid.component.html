@@ -2,7 +2,7 @@
   <mat-grid-tile
       *ngFor="let tile of tiles"
       [style.background]="tile.color">
-      <div class="tile-input" *ngIf="tile.editable"><input #box maxlength="1" (keyup)="updateBox(box.value, tile)" /></div>
+      <div class="tile-input" *ngIf="tile.editable"><input #box maxlength="1" (keyup)="updateBox(box.value, tile)" placeholder="{{tile.placeholder}}" /></div>
   </mat-grid-tile>
 </mat-grid-list>
 <!-- <div>

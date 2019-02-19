@@ -10,8 +10,8 @@ import * as _ from 'lodash';
 })
 export class TimerComponent implements OnInit {
   private timer: Observable<number>;
-  private time: number;
-  private ssoEntered: boolean = false;
+  time: number;
+  ssoEntered: boolean;
 
   private _clockSubscription: Subscription;
 
@@ -20,7 +20,8 @@ export class TimerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._clockSubscription = this.timer.subscribe(time => this.time=time)
+    this._clockSubscription = this.timer.subscribe(time => this.time = time);
+    this.ssoEntered = true;
   }
 
   ngOnDestroy(): void {
@@ -31,8 +32,11 @@ export class TimerComponent implements OnInit {
     let correctResponseCount = 0;
     if(!ssoValue) {
       this.ssoEntered = false;
+      console.log('SSO not entered');
     } else {
       correctResponseCount = this.tileService.calculateScore();
+      console.log('Length : ' + correctResponseCount);
+      console.log(ssoValue);
     }
   }
 }

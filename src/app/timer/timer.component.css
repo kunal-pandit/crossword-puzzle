@@ -13,6 +13,9 @@ button {
 .error {
   font-size: 1em;
   color: red;
+}
+
+.right {
   padding-left: 25px;
 }
 

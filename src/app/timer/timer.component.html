@@ -3,10 +3,10 @@
     <label>
       Seconds elapsed: {{time}}
     </label>
-    <label class="right error" *ngIf="!ssoEntered">Please enter SSO: </label>
+    <label class="right" [ngClass]="{'error':!ssoEntered}">Please enter SSO: </label>
     <input #sso/>
   </div>
-  <div class="split right">
+  <div class="split">
     <button mat-raised-button (click)="onSubmit(sso.value)"><b>Submit</b></button>
   </div>
 </div>
