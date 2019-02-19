@@ -1,0 +1,14 @@
+<mat-grid-list cols="29" rowHeight="1:1">
+  <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [style.background]="tile.color">
+      <div class="tile-input" *ngIf="tile.editable"><input #box maxlength="1" (keyup)="updateBox(box.value, tile)" /></div>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- <div>
+  <table>
+    <tr ng-repeat="y in grid">
+      <td ng-repeat="x in y track by $index">{{x}}</td>
+    </tr>
+  </table>
+</div> -->
